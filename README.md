@@ -2,7 +2,7 @@
 
 An end-to-end data analysis project built in **Google Sheets**: data quality checks, cleaning, exploration, analysis, a pivot table, charts and an interactive dashboard, on a retail sales dataset.
 
-**Full workbook (data, cleaning and charts):** [View the Google Sheet](PASTEhttps://docs.google.com/spreadsheets/d/1f6bezGMmQe2t6wFxsFf4QD1H8LLLoKWk-7c8M-ZdY3s/edit?usp=sharing-YOUR-GOOGLE-SHEET-LINK-HERE)
+**Full workbook (data, cleaning and charts):** (PASTEhttps://docs.google.com/spreadsheets/d/1f6bezGMmQe2t6wFxsFf4QD1H8LLLoKWk-7c8M-ZdY3s/edit?usp=sharing-YOUR-GOOGLE-SHEET-LINK-HERE)
 
 ## Project Overview
 
