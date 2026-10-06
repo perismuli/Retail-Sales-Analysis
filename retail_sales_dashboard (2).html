@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Retail Sales Dashboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Manrope:wght@400;600&display=swap">
+<style>
+:root{--bg:#eef3f0;--panel:#fff;--ink:#10231c;--mute:#5c6f67;--line:#d5dfda;--g:#0f8b6d;--g2:#7cc4ae;--a:#f2a541;--s:#34495e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1713;--panel:#122620;--ink:#e8f2ee;--mute:#92a8a0;--line:#25403a;--g:#2fbf98;--g2:#1d6b57;--a:#f5b45a;--s:#8fa6b8}}
+:root[data-theme="dark"]{--bg:#0b1713;--panel:#122620;--ink:#e8f2ee;--mute:#92a8a0;--line:#25403a;--g:#2fbf98;--g2:#1d6b57;--a:#f5b45a;--s:#8fa6b8}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Manrope,system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 20px 40px}
+h1,h2,.big{font-family:"Bricolage Grotesque",Manrope,system-ui,sans-serif}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:end;padding-bottom:26px;border-bottom:2px solid var(--ink)}
+h1{margin:0 0 6px;font-size:clamp(26px,4vw,40px);line-height:1.1;font-weight:800}
+.sub{color:var(--mute);margin:0 0 18px;max-width:46ch}
+.big{font-size:clamp(44px,8vw,84px);font-weight:800;line-height:1;color:var(--g);letter-spacing:-.03em}
+.bl{color:var(--mute);margin-top:4px}
+.spark{display:flex;align-items:flex-end;gap:14px;height:150px}
+.spark div{flex:1;text-align:center;font-weight:600;font-size:13px}
+.spark i{display:block;background:var(--g);border-radius:4px 4px 0 0;margin-bottom:6px}
+.spark div:nth-child(3) i{background:var(--a)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+.kpi{padding:18px 16px 18px 0}.kpi+.kpi{padding-left:16px;border-left:1px solid var(--line)}
+.kpi b{display:block;font:800 28px "Bricolage Grotesque",sans-serif}.kpi span{color:var(--mute);font-size:13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+.p{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.p.w{grid-column:1/-1}
+h2{margin:0 0 2px;font-size:18px;font-weight:700}.note{color:var(--mute);font-size:13px;margin:0 0 14px}
+.r{display:grid;grid-template-columns:190px 1fr 74px;gap:10px;align-items:center;margin:4px -8px;padding:4px 8px;border-radius:6px;font-size:13px;line-height:1.3}.r:hover{background:var(--bg)}.r.sel{background:var(--bg);box-shadow:inset 3px 0 0 var(--a)}[data-tip]{cursor:pointer}.spark div:hover i{opacity:.8}.seg div:hover{filter:brightness(1.12)}circle[data-tip]:hover{fill:var(--g);opacity:.25}#tip{position:fixed;display:none;z-index:9;background:var(--ink);color:var(--bg);padding:8px 11px;border-radius:6px;font-size:12.5px;line-height:1.45;pointer-events:none;max-width:250px}.hint{color:var(--g);font-weight:600;font-size:13px}
+.r .t{height:14px;background:var(--bg);border-radius:3px;overflow:hidden}.r .t i{display:block;height:100%;background:var(--g);border-radius:3px}
+.r.top .t i{background:var(--a)}.r em{font-style:normal;text-align:right;font-weight:600}
+.seg{display:flex;height:34px;border-radius:6px;overflow:hidden;margin:6px 0 10px}
+.seg div{display:flex;align-items:center;padding-left:10px;color:#fff;font-weight:600;font-size:13px;white-space:nowrap}
+.leg{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--mute)}
+.ins{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 28px}
+.ins li{padding-left:14px;border-left:3px solid var(--g)}.ins li:nth-child(even){border-color:var(--a)}
+.ins b{display:block}svg{width:100%;height:auto;display:block}
+footer{margin-top:22px;color:var(--mute);font-size:12.5px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.kpi:nth-child(3){border-left:0;padding-left:0}.grid,.ins{grid-template-columns:1fr}.r{grid-template-columns:120px 1fr 62px}}
+</style></head><body><div class="wrap">
+<section class="hero"><div><h1>Retail Sales Dashboard</h1><p class="sub">12,575 transactions from 25 customers, January 2022 to January 2025, across 8 product categories.</p><p class="hint">Hover or tap any bar, point or segment for details. Tap a bar to highlight it.</p><div class="big">1,552,071</div><div class="bl">total revenue from 11,971 complete sales</div></div>
+<div><div class="note">Revenue by year</div><div class="spark" id="sp"></div></div></section>
+<section class="kpis"><div class="kpi"><b>129.65</b><span>average sale</span></div><div class="kpi"><b>66,276</b><span>items sold</span></div><div class="kpi"><b>25</b><span>customers</span></div><div class="kpi"><b>0.4%</b><span>sale size gap, discount vs none</span></div></section>
+<section class="grid">
+<div class="p"><h2>Revenue by category</h2><p class="note">Spread evenly: 11.6% to 13.4% each</p><div id="cat"></div></div>
+<div class="p"><h2>Average sale by category</h2><p class="note">Butchers earns about 20 more per sale than Milk Products</p><div id="avg"></div></div>
+<div class="p"><h2>Online vs in-store</h2><p class="note">Revenue share</p><div class="seg"><div data-tip="<b>Online</b><br>Revenue: 791,401<br>51.0% of total revenue" style="width:51%;background:var(--g)">Online 51.0%</div><div data-tip="<b>In-store</b><br>Revenue: 760,670<br>49.0% of total revenue" style="width:49%;background:var(--s)">In-store 49.0%</div></div><div class="leg"><span>Online 791,401</span><span>In-store 760,670</span></div>
+<h2 style="margin-top:20px">Payment methods</h2><p class="note">Revenue share</p><div class="seg"><div data-tip="<b>Cash</b><br>Revenue: 537,710<br>34.6% of total revenue" style="width:34.6%;background:var(--g)">Cash</div><div data-tip="<b>Credit Card</b><br>Revenue: 507,082<br>32.7% of total revenue" style="width:32.7%;background:var(--s)">Credit Card</div><div data-tip="<b>Digital Wallet</b><br>Revenue: 507,279<br>32.7% of total revenue" style="width:32.7%;background:var(--a);color:#10231c">Digital Wallet</div></div><div class="leg"><span>Cash 34.6%</span><span>Credit Card 32.7%</span><span>Digital Wallet 32.7%</span></div></div>
+<div class="p"><h2>Top 10 items by revenue</h2><p class="note">Furniture (Item 25) and Electric household essentials (Item 25) lead</p><div id="top"></div></div>
+<div class="p w"><h2>Revenue by month, 2022 to 2024</h2><p class="note">Fairly flat: July is strongest, February and October weakest</p><svg id="ln" viewBox="0 0 700 220" role="img" aria-label="Monthly revenue line chart"></svg></div>
+<div class="p w"><h2>What the data says</h2><p class="note">Insights</p><ul class="ins">
+<li><b>Sales are evenly spread</b>No category, channel or payment method dominates.</li>
+<li><b>2024 was the best year</b>Revenue fell 3.7% in 2023, then rose 6.8% in 2024. Sale size stayed near 130.</li>
+<li><b>Butchers leads on value</b>139.12 per sale against 119.04 for Milk Products.</li>
+<li><b>Discounts show no lift</b>Average sale 130.49 with a discount, 129.95 without. Quantity is 5.53 vs 5.58.</li></ul></div>
+</section>
+<footer>604 sales with no value are excluded from revenue. Discount status is unknown for 4,199 records. 2025 holds only 18 days, so it is left out of year and month comparisons. Tool: Google Sheets.</footer>
+</div>
+<script>
+var T=1552071,AV=129.65,f=function(n){return n.toLocaleString('en-US',{maximumFractionDigits:2})};
+var tip=document.createElement('div');tip.id='tip';document.body.appendChild(tip);
+function place(e){var t=e.target.closest('[data-tip]');if(!t){tip.style.display='none';return}
+tip.innerHTML=t.getAttribute('data-tip');tip.style.display='block';
+var x=Math.min(e.clientX+14,innerWidth-tip.offsetWidth-8),y=e.clientY+16;if(y+tip.offsetHeight>innerHeight)y=e.clientY-tip.offsetHeight-12;
+tip.style.left=Math.max(8,x)+'px';tip.style.top=y+'px'}
+document.addEventListener('mousemove',place);
+document.addEventListener('click',function(e){place(e);var r=e.target.closest('.r');if(r){var on=r.classList.contains('sel');r.parentNode.querySelectorAll('.sel').forEach(function(n){n.classList.remove('sel')});if(!on)r.classList.add('sel')}});
+function bars(id,d,mx,fn){var h='';d.forEach(function(x,i){h+='<div class="r'+(i<1?' top':'')+'" data-tip="'+fn(x[0],x[1])+'"><span>'+x[0]+'</span><div class="t"><i style="width:'+(x[1]/mx*100)+'%"></i></div><em>'+f(x[1])+'</em></div>'});document.getElementById(id).innerHTML=h}
+var share=function(l,v){return '<b>'+l+'</b><br>Revenue: '+f(v)+'<br>'+(v/T*100).toFixed(1)+'% of total revenue'};
+bars('cat',[['Butchers',208118],['Electric household essentials',203813.5],['Beverages',197047.5],['Furniture',195310],['Food',194812],['Computers and electric accessories',190692.5],['Patisserie',182165.5],['Milk Products',180112]],208118,share);
+bars('avg',[['Butchers',139.12],['Electric household essentials',134.44],['Beverages',131.72],['Food',129.27],['Computers and electric accessories',129.11],['Furniture',128.07],['Patisserie',126.42],['Milk Products',119.04]],139.12,function(l,v){var d=v-AV;return '<b>'+l+'</b><br>Average sale: '+v.toFixed(2)+'<br>'+(d>=0?'+':'')+d.toFixed(2)+' vs overall average of 129.65'});
+bars('top',[['Furniture (Item 25)',25625],['Electric household essentials (Item 25)',25502],['Butchers (Item 25)',22427],['Furniture (Item 24)',22080.5],['Food (Item 25)',21771],['Butchers (Item 22)',21462],['Butchers (Item 23)',20596],['Milk Products (Item 19)',20448],['Electric household essentials (Item 23)',20178],['Patisserie (Item 23)',19684]],25625,share);
+var y=[['2022',510329.5],['2023',491312],['2024',524881]],s='';
+y.forEach(function(x,i){var c=i?((x[1]/y[i-1][1]-1)*100).toFixed(1)+'% vs '+y[i-1][0]:'First year in the data';
+s+='<div data-tip="<b>'+x[0]+'</b><br>Revenue: '+f(x[1])+'<br>'+(i&&x[1]>y[i-1][1]?'+':'')+c+'"><i style="height:'+(x[1]/524881*105)+'px"></i>'+x[0]+'<br>'+f(x[1])+'</div>'});document.getElementById('sp').innerHTML=s;
+var m=[148872.5,119685,122392,125618.5,124594.5,129771,131509,123287.5,129344,119413.5,122346.5,129688.5],mn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+var avm=m.reduce(function(a,b){return a+b})/12,lo=110000,hi=155000,p=[],h='';
+m.forEach(function(v,i){p.push([40+i*58.5,180-(v-lo)/(hi-lo)*150])});
+var pts=p.map(function(q){return q[0]+','+q[1]}).join(' ');
+h+='<polygon points="40,180 '+pts+' 683.5,180" style="fill:var(--g);opacity:.12"/><polyline points="'+pts+'" style="fill:none;stroke:var(--g);stroke-width:3"/>';
+p.forEach(function(q,i){var d=m[i]-avm,t='<b>'+mn[i]+' (2022 to 2024)</b><br>Revenue: '+f(m[i])+'<br>'+(d>=0?'+':'')+f(Math.round(d))+' vs monthly average';
+h+='<circle cx="'+q[0]+'" cy="'+q[1]+'" r="5" style="fill:var(--g)"/><circle cx="'+q[0]+'" cy="'+q[1]+'" r="18" data-tip="'+t+'" style="fill:transparent"/><text x="'+q[0]+'" y="204" text-anchor="middle" style="fill:var(--mute);font-size:12px">'+mn[i]+'</text><text x="'+q[0]+'" y="'+(q[1]-12)+'" text-anchor="middle" style="fill:var(--ink);font-size:11px">'+Math.round(m[i]/1000)+'k</text>'});
+document.getElementById('ln').innerHTML=h;
+</script>
+</body></html>
